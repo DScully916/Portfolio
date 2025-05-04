@@ -654,7 +654,9 @@
 
           <ul class="project-list">
 
-            <li class="project-item  active" data-filter-item data-category="Clubs and Research">
+            <li class="project-item  active" data-filter-item data-category="Clubs and Research"
+                data-title="Test Stand (NDXP)"
+                data-description="•	Spearheading the design and construction of a horizontal launch stand to safely contain engine testing while gathering data.">
               <a href="#">
 
                 <figure class="project-img">
@@ -927,6 +929,36 @@
         }
       });
     });
+  });
+</script>
+
+<!--Pop up Portfolio Descriptions-->
+<div id="project-modal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:white; padding:20px; max-width:600px; width:90%; position:relative;">
+    <button onclick="closeModal()" style="position:absolute; top:10px; right:10px;">✖</button>
+    <h3 id="modal-title"></h3>
+    <p id="modal-description"></p>
+  </div>
+</div>
+
+<!-- js code for portfolio descriptors-->
+<script>
+  function openModal(element) {
+    const modal = document.getElementById("project-modal");
+    const title = element.parentElement.getAttribute("data-title");
+    const description = element.parentElement.getAttribute("data-description");
+    document.getElementById("modal-title").textContent = title;
+    document.getElementById("modal-description").textContent = description;
+    modal.style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("project-modal").style.display = "none";
+  }
+
+  // Close modal when clicking outside the content
+  document.getElementById("project-modal").addEventListener("click", function(e) {
+    if (e.target === this) closeModal();
   });
 </script>
 
