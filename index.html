@@ -658,7 +658,8 @@
                 data-title="Test Stand (NDXP)"
                 data-description="When testing a liquid rocket engine, safety is the number one concern. I am currently spearheading the design of a horizontal test stand 
                 for NDXP using Fusion360 with goals of maintaining a safe environment while being able to collect data. Working around piping connections to the injector plate and pressure 
-                transducers on the side of the engine has been the biggest challenge of the design.">
+                transducers on the side of the engine has been the biggest challenge of the design."
+                data-image = ./assets/images/project-1.png>
               <a href="#" onclick = "openModal(this)">
 
                 <figure class="project-img">
@@ -677,10 +678,11 @@
             </li>
 
             <li class="project-item  active" data-filter-item data-category="Class Projects"
-              data-title="Air Quality Sensor Housing Unit"
+                data-title="Air Quality Sensor Housing Unit"
                 data-description="Seasonal wildfires cause poor air quality around the Notre Dame Campus in the fall. 
                 To combat this issue, I worked with a team of engineers to design a housing unit for an air quality sensor, a 
-                arduino board, and a servo motor that could be placed around campus to monitor air quality in different locations.">
+                arduino board, and a servo motor that could be placed around campus to monitor air quality in different locations."
+                data-image = ".assests/images/project-2.JPG">
               <a href="#" onclick = "openModal(this)">
 
                 <figure class="project-img">
@@ -943,6 +945,7 @@
   <div style="background:white; padding:20px; max-width:600px; width:90%; position:relative;">
     <button onclick="closeModal()" style="position:absolute; top:10px; right:10px;">✖</button>
     <h3 id="modal-title"></h3>
+    <img id="modal-image" src="" alt="" style="width: 100%; border-radius: 10px; margin: 15px 0;">
     <p id="modal-description"></p>
   </div>
 </div>
@@ -951,10 +954,15 @@
 <script>
   function openModal(element) {
     const modal = document.getElementById("project-modal");
-    const title = element.parentElement.getAttribute("data-title");
-    const description = element.parentElement.getAttribute("data-description");
+    const parent = element.parentElement;
+    const title = parent.getAttribute("data-title");
+    const description = parent.getAttribute("data-description");
+    const imageSrc = parent.getAttribute("data-image");
+
     document.getElementById("modal-title").textContent = title;
     document.getElementById("modal-description").textContent = description;
+    document.getElementById("modal-image").src = imageSrc;
+    document.getElementById("modal-image").alt = title;
     modal.style.display = "flex";
   }
 
