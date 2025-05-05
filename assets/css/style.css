@@ -958,7 +958,7 @@ main {
   width: 100%;
   height: 200px;
   border-radius: 16px;
-  overflow: cover;
+  overflow: hidden;
   margin-bottom: 15px;
 }
 
