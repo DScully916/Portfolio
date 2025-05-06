@@ -682,7 +682,7 @@
                 data-description="Seasonal wildfires cause poor air quality around the Notre Dame Campus in the fall. 
                 To combat this issue, I worked with a team of engineers to design a housing unit for an air quality sensor, a 
                 arduino board, and a servo motor that could be placed around campus to monitor air quality in different locations."
-                data-image = "./assets/images/project-2.JPG">
+                data-image = "./assets/images/project-2.png|./assets/images/project-2a.JPG|./assets/images/project-2b.JPG">
               <a href="#" onclick = "openModal(this)">
 
                 <figure class="project-img">
@@ -690,7 +690,7 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/project-2.JPG" alt="AQ Sensor Unit" loading="lazy">
+                  <img src="./assets/images/project-2.png" alt="AQ Sensor Unit" loading="lazy">
                 </figure>
 
                 <h3 class="project-title">AQ Sensor Unit</h3>
@@ -959,7 +959,7 @@
   <div style="background:white; padding:20px; max-width:600px; width:90%; position:relative;">
     <button onclick="closeModal()" style="position:absolute; top:10px; right:10px;">✖</button>
     <h3 id="modal-title"></h3>
-    <img id="modal-image" src="" alt="" style="width: 100%; border-radius: 10px; margin: 15px 0;">
+    <div id="modal-images" style="display: flex; flex-direction: column; gap: 15px; margin: 15px 0;"></div>
     <p id="modal-description"></p>
   </div>
 </div>
@@ -971,12 +971,27 @@
     const parent = element.parentElement;
     const title = parent.getAttribute("data-title");
     const description = parent.getAttribute("data-description");
-    const imageSrc = parent.getAttribute("data-image");
+    const imageData = parent.getAttribute("data-image");
 
+    // Set title and description
     document.getElementById("modal-title").textContent = title;
     document.getElementById("modal-description").textContent = description;
-    document.getElementById("modal-image").src = imageSrc;
-    document.getElementById("modal-image").alt = title;
+
+    // Get the container for images and clear previous images
+    const imagesContainer = document.getElementById("modal-images");
+    imagesContainer.innerHTML = "";
+
+    // Split images and append each one
+    const imageArray = imageData.split("|");
+    imageArray.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src.trim();
+      img.alt = title;
+      img.style.width = "100%";
+      img.style.borderRadius = "10px";
+      img.style.marginBottom = "15px";
+      imagesContainer.appendChild(img);
+    });
     modal.style.display = "flex";
   }
 
