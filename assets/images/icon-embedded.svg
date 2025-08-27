@@ -1,0 +1,30 @@
+<svg width="60" height="40" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+
+<defs>
+  <linearGradient id="gold" x1="0" y1="0" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#FFDB6E"/>
+    <stop offset="100%" stop-color="#FFBC5E"/>
+  </linearGradient>
+</defs>
+
+<g stroke="url(#gold)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none">
+  <!-- Board outline -->
+  <rect x="5" y="5" width="50" height="30" rx="2"/>
+  
+  <!-- Microcontroller (main IC) -->
+  <rect x="22" y="12" width="16" height="12" rx="1.5"/>
+  <!-- IC pins -->
+  <path d="M24 12 v-3"/><path d="M28 12 v-3"/><path d="M32 12 v-3"/><path d="M36 12 v-3"/>
+  <path d="M24 24 v3"/><path d="M28 24 v3"/><path d="M32 24 v3"/><path d="M36 24 v3"/>
+  
+  <!-- USB connector -->
+  <rect x="47" y="15" width="6" height="6"/>
+  
+  <!-- Pin header rows (left side) -->
+  <path d="M8 10 h4"/><path d="M8 14 h4"/><path d="M8 18 h4"/><path d="M8 22 h4"/><path d="M8 26 h4"/>
+  
+  <!-- Additional small components -->
+  <rect x="12" y="28" width="6" height="3"/>
+  <rect x="40" y="28" width="5" height="3"/>
+</g>
+</svg>
